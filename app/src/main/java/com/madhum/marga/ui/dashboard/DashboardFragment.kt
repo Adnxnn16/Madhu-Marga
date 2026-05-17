@@ -19,8 +19,7 @@ import java.util.*
 
 /**
  * DashboardFragment — overview of all hives at a glance.
- * FR-13: Producer dashboard — overview of all hives at a glance.
- * FR-08: Honey Flow Progress Bar — visualise current season flow intensity.
+ * Redesigned to match accurate dashboard requirement.
  */
 class DashboardFragment : Fragment() {
 
@@ -40,7 +39,7 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val session = SessionManager(requireContext())
-        binding.tvWelcome.text = "Hello, ${session.getFullName().split(" ").firstOrNull() ?: "Beekeeper"}"
+        binding.tvWelcome.text = "Welcome, ${session.getFullName().split(" ").firstOrNull() ?: "Admin"}! 🐝"
 
         setupHoneyFlowBar()
         observeData()
@@ -57,19 +56,11 @@ class DashboardFragment : Fragment() {
         binding.tvFlowSeason.text = "$season Flow"
 
         binding.tvFlowLabel.text = when {
-            intensity >= 0.8f -> "🍯 Peak Honey Flow!"
-            intensity >= 0.5f -> "📈 Moderate Flow"
-            intensity >= 0.3f -> "📉 Low Flow"
-            else -> "❄️ Off Season"
+            intensity >= 0.8f -> "Peak Honey Flow"
+            intensity >= 0.5f -> "Moderate Flow"
+            intensity >= 0.3f -> "Low Flow"
+            else -> "Off Season"
         }
-
-        // Color-code the progress bar
-        val color = when {
-            intensity >= 0.8f -> requireContext().getColor(R.color.honey_primary)
-            intensity >= 0.5f -> requireContext().getColor(R.color.honey_accent)
-            else -> requireContext().getColor(R.color.status_neutral)
-        }
-        binding.honeyFlowProgress.progressTintList = android.content.res.ColorStateList.valueOf(color)
     }
 
     private fun observeData() {
@@ -92,15 +83,6 @@ class DashboardFragment : Fragment() {
             binding.tvTotalHarvest.text = "%.1f kg".format(total ?: 0.0)
         }
 
-        inspectionViewModel.alertCount.observe(viewLifecycleOwner) { count ->
-            if (count > 0) {
-                binding.alertBanner.visibility = View.VISIBLE
-                binding.tvAlertCount.text = "$count active alert${if (count > 1) "s" else ""}"
-            } else {
-                binding.alertBanner.visibility = View.GONE
-            }
-        }
-
         hiveViewModel.hives.observe(viewLifecycleOwner) { hives ->
             binding.tvHiveHealthSummary.text = if (hives.isEmpty()) {
                 "Register your first hive to get started!"
@@ -117,22 +99,19 @@ class DashboardFragment : Fragment() {
         binding.btnLogHarvest.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_harvestFragment)
         }
+        binding.btnAllHives.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_hiveListFragment)
+        }
         binding.btnViewHives.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_hiveListFragment)
         }
         binding.btnFloraCalendar.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_floraCalendarFragment)
         }
-        binding.btnAnalytics.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardFragment_to_analyticsFragment)
-        }
-        binding.btnExport.setOnClickListener {
-            com.madhum.marga.util.ExportManager.exportAllData(requireContext())
-        }
         binding.btnLogout.setOnClickListener {
             com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Sign Out")
-                .setMessage("Are you sure you want to sign out of Madhu Marga?")
+                .setMessage("Are you sure you want to sign out?")
                 .setNegativeButton("Cancel", null)
                 .setPositiveButton("Sign Out") { _, _ ->
                     (requireActivity() as? com.madhum.marga.ui.main.MainActivity)?.logout()

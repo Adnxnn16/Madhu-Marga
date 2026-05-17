@@ -20,6 +20,16 @@ The application has been fully modernized using the **Stitch AI Design System** 
 
 ---
 
+## 📸 Application Screenshots
+
+| Login & Authentication | Main Dashboard | Hive Management |
+| :---: | :---: | :---: |
+| ![Login Page](screenshots/1.%20Login%20Page.png) | ![Dashboard](screenshots/2.%20Dashboard.png) | ![My Hives](screenshots/3.%20My%20Hives.png) |
+| **Inspection Log** | **Harvest Tracker** | **Flora Calendar** |
+| ![Inspection Log](screenshots/4.%20Inspection%20Log.png) | ![Harvest Tracker](screenshots/5.%20Harvest%20Tracker.png) | ![Flora Calendar](screenshots/6.%20Flor%20Calendar.png) |
+
+---
+
 ## 🌟 Key Features (v1.0 Production Release)
 
 1. **Offline-First Architecture (Room DB)**:
@@ -59,6 +69,13 @@ Follow these exact steps to build, run, and evaluate the project for final submi
 ### 3. Firebase Configuration (Pre-Configured for Evaluation)
 > [!NOTE]
 > **For Evaluators & Reviewers:** A fully functional, pre-configured `app/google-services.json` file is **already included** in this repository. You can build, run, and test the entire application (including Firebase Auth and Storage) immediately without any additional cloud setup.
+
+#### 🔑 Evaluation Login Credentials
+To evaluate the application immediately without filling out the registration form, you can use the following pre-configured test credentials on the Login screen:
+* **Email**: 'admin@gmail.com'
+* **Password**: `Admin123`
+
+*(Alternatively, reviewers can click the **Register** button on the launch screen to create a new account with any valid email and password of their choice).*
 
 **For Developers Deploying Their Own Cloud Instance (Optional):**
 If you wish to connect the application to your own Firebase backend:

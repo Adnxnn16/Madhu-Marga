@@ -4,340 +4,430 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="#FFF8E1">
 
     <View
         android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:background="@color/primary"
+        android:layout_height="60dp"
+        android:background="#FFB300"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvWelcome"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
-        android:text="@string/hello_beekeeper"
-        android:textColor="@color/onPrimary"
-        android:textSize="24sp"
+        android:layout_marginStart="16dp"
+        android:text="Dashboard"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/topBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvSummary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/apiary_at_glance"
-        android:textColor="@color/onPrimary"
-        android:alpha="0.8"
-        app:layout_constraintStart_toStartOf="@id/tvWelcome"
-        app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+        app:layout_constraintTop_toTopOf="@id/topBar" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogout"
         style="@style/Widget.Material3.Button.IconButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginEnd="8dp"
         app:icon="@drawable/ic_person"
-        app:iconTint="@color/onPrimary"
-        app:iconSize="28dp"
+        app:iconSize="24dp"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@id/topBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="Profile &amp; Sign Out" />
+        app:layout_constraintTop_toTopOf="@id/topBar" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="-24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavDivider"
         app:layout_constraintTop_toBottomOf="@id/topBar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="20dp">
 
-            <!-- Honey Flow Progress Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="4dp"
-                app:strokeWidth="0dp">
+                android:text="Welcome, Admin! 🐝"
+                android:textColor="#1C1B1F"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                        <TextView
-                            android:id="@+id/tvFlowLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Honey Flow"
-                            android:textColor="@color/onSurface"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:id="@+id/tvFlowPercent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0%"
-                            android:textColor="@color/primary"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <com.google.android.material.progressindicator.LinearProgressIndicator
-                        android:id="@+id/honeyFlowProgress"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        app:trackThickness="8dp"
-                        app:trackCornerRadius="4dp" />
-
-                    <TextView
-                        android:id="@+id/tvFlowSeason"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Current Season"
-                        android:textColor="@color/onSurfaceVariant"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Here's your hive overview today"
+                android:textColor="#79747E"
+                android:textSize="14sp" />
 
             <!-- Stats Grid -->
-            <GridLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:columnCount="2"
-                android:alignmentMode="alignMargins"
-                android:columnOrderPreserved="false"
-                android:useDefaultMargins="true">
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnViewHives"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    app:cardCornerRadius="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="2dp"
-                    android:clickable="true"
-                    android:focusable="true">
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:padding="16dp">
+
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:src="@drawable/ic_hive"
-                            app:tint="@color/primary" />
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_hive" />
+
                         <TextView
                             android:id="@+id/tvHiveCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="4dp"
                             android:text="0"
-                            android:textSize="24sp"
+                            android:textColor="#FFB300"
+                            android:textSize="28sp"
                             android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/total_hives"
-                            android:textColor="@color/onSurfaceVariant"
+                            android:text="Total Hives"
+                            android:textColor="#79747E"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/btnLogHarvest"
+                    android:id="@+id/btnTotalHoney"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    app:cardCornerRadius="20dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="2dp"
-                    android:clickable="true"
-                    android:focusable="true">
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:padding="16dp">
+
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:src="@drawable/ic_honey_jar"
-                            app:tint="@color/primary" />
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_honey_jar" />
+
                         <TextView
                             android:id="@+id/tvTotalHarvest"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="0 kg"
-                            android:textSize="24sp"
+                            android:layout_marginTop="4dp"
+                            android:text="0.0 kg"
+                            android:textColor="#FFB300"
+                            android:textSize="28sp"
                             android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/this_year"
-                            android:textColor="@color/onSurfaceVariant"
+                            android:text="Total Honey"
+                            android:textColor="#79747E"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-
-            </GridLayout>
-
-            <!-- Alert Banner -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/alertBanner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardBackgroundColor="@color/errorContainer"
-                app:cardCornerRadius="16dp"
-                app:strokeWidth="0dp"
-                android:visibility="gone">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_alert"
-                        app:tint="@color/onErrorContainer" />
-                    <TextView
-                        android:id="@+id/tvAlertCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:text="3 alerts"
-                        android:textColor="@color/onErrorContainer"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Quick Actions -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp"
-                android:text="Quick Actions"
-                android:textColor="@color/onSurface"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:useDefaultMargins="true">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnQuickInspect"
-                    style="@style/Widget.Material3.Button.TonalButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:text="Inspect"
-                    app:icon="@drawable/ic_nav_inspect" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnFloraCalendar"
-                    style="@style/Widget.Material3.Button.TonalButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:text="Flora"
-                    app:icon="@drawable/ic_nav_flora" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAnalytics"
-                    style="@style/Widget.Material3.Button.TonalButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:text="Analytics"
-                    app:icon="@drawable/ic_nav_dashboard" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnExport"
-                    style="@style/Widget.Material3.Button.TonalButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:text="Export CSV"
-                    app:icon="@drawable/ic_nav_harvest" />
-            </GridLayout>
+            </LinearLayout>
 
             <!-- Last Inspection -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="32dp"
+                app:cardBackgroundColor="#FEF7E6"
                 app:cardCornerRadius="16dp"
-                app:strokeWidth="1dp"
-                app:strokeColor="@color/outline">
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
-                    <TextView
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Last Inspection"
-                        android:textColor="@color/onSurfaceVariant"
-                        android:textSize="12sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_assignment"
+                            app:tint="#A1887F" />
+
+                        <TextView
+                            android:id="@+id/tvLastInspectionTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="Last Inspection"
+                            android:textColor="#A1887F"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
                     <TextView
                         android:id="@+id/tvLastInspection"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
                         android:text="No inspection yet"
-                        android:textColor="@color/onSurface"
+                        android:textColor="#1C1B1F"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvLastInspectionHive"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Start inspecting!"
-                        android:textColor="@color/onSurfaceVariant" />
-
-                    <!-- Missing from old code but used in observeData -->
-                    <TextView
-                        android:id="@+id/tvHiveHealthSummary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Health Summary"
-                        android:textSize="12sp"
-                        android:visibility="gone" />
+                        android:textColor="#79747E"
+                        android:textSize="14sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Honey Flow -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/flowHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_trending"
+                                app:tint="#EF9A9A" />
+
+                            <TextView
+                                android:id="@+id/tvFlowLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="Moderate Flow"
+                                android:textColor="#1C1B1F"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvFlowSeason"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="Spring Flow"
+                            android:textColor="#79747E"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/honeyFlowProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:indicatorColor="#D87C17"
+                        app:trackColor="#F5F5F5"
+                        app:trackThickness="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvFlowPercent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="60%"
+                        android:textColor="#FFB300"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvHiveHealthSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="Register your first hive to get started!"
+                android:textColor="#79747E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Quick Actions"
+                android:textColor="#1C1B1F"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:columnCount="2"
+                android:useDefaultMargins="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuickInspect"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:text="INSPECT"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#FFB300"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_inspect"
+                    app:iconGravity="textStart"
+                    app:iconTint="#FFFFFF" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogHarvest"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:text="HARVEST"
+                    android:textColor="#FFB300"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_harvest"
+                    app:iconGravity="textStart"
+                    app:iconTint="#FFB300"
+                    app:strokeColor="#FFB300" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAllHives"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:text="MY HIVES"
+                    android:textColor="#FFB300"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_hive"
+                    app:iconGravity="textStart"
+                    app:iconTint="#FFB300"
+                    app:strokeColor="#FFB300" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFloraCalendar"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:text="FLORA"
+                    android:textColor="#FFB300"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_flora"
+                    app:iconGravity="textStart"
+                    app:iconTint="#FFB300"
+                    app:strokeColor="#FFB300" />
+            </GridLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/bottomNavDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#EEEEEE"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavDummy" />
+
+    <LinearLayout
+        android:id="@+id/bottomNavDummy"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_nav_dashboard"
+                app:tint="#FFB300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:textColor="#FFB300"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <!-- Placeholders for other nav items -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
