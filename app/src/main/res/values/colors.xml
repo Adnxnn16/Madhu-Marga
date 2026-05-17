@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Modern Material 3 Honey Palette -->
+    <color name="primary">#FFB300</color> <!-- Amber 600 -->
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="primaryContainer">#FFECB3</color> <!-- Amber 100 -->
+    <color name="onPrimaryContainer">#3E2723</color> <!-- Deep Brown -->
+
+    <color name="secondary">#795548</color> <!-- Brown 500 -->
+    <color name="onSecondary">#FFFFFF</color>
+    <color name="secondaryContainer">#D7CCC8</color>
+    <color name="onSecondaryContainer">#3E2723</color>
+
+    <color name="tertiary">#4CAF50</color> <!-- Green 500 -->
+    <color name="onTertiary">#FFFFFF</color>
+    <color name="tertiaryContainer">#C8E6C9</color>
+    <color name="onTertiaryContainer">#1B5E20</color>
+
+    <color name="error">#B00020</color>
+    <color name="onError">#FFFFFF</color>
+    <color name="errorContainer">#F9DEDC</color>
+    <color name="onErrorContainer">#410E0B</color>
+
+    <color name="background">#FFF8E1</color> <!-- Amber 50 -->
+    <color name="onBackground">#1C1B1F</color>
+
+    <color name="surface">#FFFBFE</color>
+    <color name="onSurface">#1C1B1F</color>
+    <color name="surfaceVariant">#E7E0EC</color>
+    <color name="onSurfaceVariant">#49454F</color>
+
+    <color name="outline">#79747E</color>
+
+    <!-- Legacy compatibility and utility -->
+    <color name="honey_primary">#FFB300</color>
+    <color name="honey_primary_dark">#FF8F00</color>
+    <color name="honey_primary_light">#FFECB3</color>
+    <color name="honey_accent">#795548</color>
+    <color name="honey_deep">#3E2723</color>
+    <color name="warm_white">#FFF8E1</color>
+    <color name="warm_cream">#FDF2D9</color>
+    <color name="surface_card">#FFFFFF</color>
+    <color name="surface_overlay">#FFFBEB</color>
+    <color name="text_primary">#1C1B1F</color>
+    <color name="text_secondary">#49454F</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_hint">#887364</color>
+    <color name="divider">#DBC2B0</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="status_success">#4CAF50</color>
+    <color name="status_warning">#FF9800</color>
+    <color name="status_error">#F44336</color>
+    <color name="status_neutral">#887364</color>
+    <color name="status_info">#2196F3</color>
+</resources>

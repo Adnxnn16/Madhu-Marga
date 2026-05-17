@@ -1,0 +1,133 @@
+<resources>
+    <string name="app_name">Madhu Marga</string>
+    <string name="app_tagline">Digital Beekeeper\'s Diary</string>
+    <string name="app_subtitle">AI-Guided Beekeeping for India</string>
+
+    <!-- Auth -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="dont_have_account">Don\'t have an account? Register</string>
+    <string name="already_have_account">Already have an account? Login</string>
+    <string name="logout">Logout</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="hello_beekeeper">Hello, Beekeeper!</string>
+    <string name="apiary_at_glance">Your apiary at a glance</string>
+    <string name="overall_health">Overall Health</string>
+    <string name="all_hives_healthy">All Hives Healthy</string>
+    <string name="this_year">This Year</string>
+    <string name="recent_alerts">Recent Alerts</string>
+    <string name="no_alerts">No alerts today</string>
+    <string name="hive_icon">Hive icon</string>
+    <string name="harvest_icon">Harvest icon</string>
+    <string name="alert_icon">Alert icon</string>
+    <string name="create_account">Create Your Account</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_hives">My Hives</string>
+    <string name="nav_inspect">Inspect</string>
+    <string name="nav_harvest">Harvest</string>
+    <string name="nav_flora">Flora</string>
+
+    <!-- Hive -->
+    <string name="hive_register">Hive Register</string>
+    <string name="add_hive">Add New Hive</string>
+    <string name="edit_hive">Edit Hive</string>
+    <string name="hive_id">Hive ID</string>
+    <string name="hive_name">Hive Name</string>
+    <string name="hive_type">Hive Type</string>
+    <string name="hive_location">Location</string>
+    <string name="hive_notes">Notes</string>
+    <string name="no_hives">No hives registered yet.\nTap + to add your first hive!</string>
+    <string name="delete_hive">Delete Hive</string>
+    <string name="hive_langstroth">Langstroth</string>
+    <string name="hive_top_bar">Top Bar</string>
+    <string name="hive_log">Log Box</string>
+    <string name="hive_warre">Warré</string>
+    <string name="hive_types_array" translatable="false">Langstroth|Top Bar|Log Box|Warré</string>
+
+    <!-- Inspection Log -->
+    <string name="inspection_log">Inspection Log</string>
+    <string name="new_inspection">New Inspection</string>
+    <string name="queen_present">Queen Present?</string>
+    <string name="pests_seen">Pests Observed?</string>
+    <string name="activity_level">Activity Level</string>
+    <string name="activity_high">High</string>
+    <string name="activity_medium">Medium</string>
+    <string name="activity_low">Low</string>
+    <string name="inspection_notes">Observations / Notes</string>
+    <string name="save_inspection">Save Inspection</string>
+    <string name="no_inspections">No inspections logged yet for this hive.</string>
+    <string name="select_hive">Select Hive</string>
+
+    <!-- Decision Matrix / Alerts -->
+    <string name="intervention_alert">🚨 Intervention Alert</string>
+    <string name="harvest_tip">🍯 Harvest Tip</string>
+    <string name="hive_healthy">✅ Hive Looks Healthy</string>
+    <string name="alert_low_activity">Inspect for queen loss or disease. Hive activity is critically low.</string>
+    <string name="alert_no_queen_low">Emergency — consider re-queening or merging this colony immediately.</string>
+    <string name="tip_harvest_ready">Harvest ready — add supers or extract honey now. Frames are full!</string>
+    <string name="alert_mites">Apply varroa treatment immediately. Recheck in 7 days.</string>
+    <string name="tip_ventilation">Improve ventilation and add shade cover. Bees are clustering due to heat.</string>
+    <string name="tip_queen_ok">Queen is present and colony is stable. Keep monitoring.</string>
+    <string name="healthy_msg">Your hive is in good health. Continue regular inspections.</string>
+
+    <!-- Harvest -->
+    <string name="harvest_tracker">Harvest Tracker</string>
+    <string name="log_harvest">Log Harvest</string>
+    <string name="harvest_quantity">Quantity (kg)</string>
+    <string name="harvest_date">Harvest Date</string>
+    <string name="harvest_hive">Hive</string>
+    <string name="harvest_notes">Harvest Notes</string>
+    <string name="total_harvest">Total Harvest</string>
+    <string name="no_harvest">No harvest logged yet.</string>
+    <string name="year_over_year">Year-over-Year Harvest</string>
+
+    <!-- Flora Calendar -->
+    <string name="flora_calendar">Flora Calendar</string>
+    <string name="flora_subtitle">Nearby Blooming Flowers by Season</string>
+
+    <!-- Honey Flow -->
+    <string name="honey_flow">Honey Flow</string>
+    <string name="honey_flow_subtitle">Current Season Flow Intensity</string>
+    <string name="flow_peak">Peak Flow</string>
+    <string name="flow_moderate">Moderate</string>
+    <string name="flow_off_season">Off Season</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard">Dashboard</string>
+    <string name="total_hives">Total Hives</string>
+    <string name="last_inspection">Last Inspection</string>
+    <string name="total_honey_kg">Total Honey (kg)</string>
+    <string name="hive_health_overview">Hive Health Overview</string>
+    <string name="quick_inspect">Quick Inspect</string>
+    <string name="log_harvest_btn">Log Harvest</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_name">Madhu Marga Alerts</string>
+    <string name="notification_channel_desc">Hive intervention and harvest alerts</string>
+    <string name="notification_title">🚨 Hive Needs Attention!</string>
+    <string name="notification_text">Low activity detected. Inspect your hive immediately.</string>
+
+    <!-- Common -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="date">Date</string>
+    <string name="loading">Loading…</string>
+    <string name="error_fill_fields">Please fill in all required fields.</string>
+    <string name="error_password_mismatch">Passwords do not match.</string>
+    <string name="error_invalid_email">Please enter a valid email.</string>
+    <string name="error_password_short">Password must be at least 6 characters.</string>
+    <string name="error_user_exists">An account with this email already exists.</string>
+    <string name="error_invalid_credentials">Invalid email or password.</string>
+</resources>

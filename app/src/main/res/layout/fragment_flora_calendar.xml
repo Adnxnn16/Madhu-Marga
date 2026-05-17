@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/warm_white">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/honey_primary"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌸 Flora Calendar"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_on_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nearby Blooming Flowers by Season"
+            android:textSize="14sp"
+            android:textColor="@color/warm_cream"
+            android:layout_marginTop="2dp" />
+
+        <!-- Month horizontal scroller -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMonths"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:clipToPadding="false"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp" />
+    </LinearLayout>
+
+    <!-- Selected Month Info -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/warm_cream">
+
+        <TextView
+            android:id="@+id/tvMonthName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="January"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/honey_primary_dark" />
+
+        <TextView
+            android:id="@+id/tvSeason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌸 Winter Season"
+            android:textSize="15sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvFlowRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/honey_accent"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvBeekeeperTip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/honey_deep"
+            android:background="@color/surface_overlay"
+            android:padding="12dp"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- Flower List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerFlowers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="12dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>
