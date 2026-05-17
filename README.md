@@ -100,9 +100,14 @@ If you wish to connect the application to your own Firebase backend:
 
 ## ⚠️ Troubleshooting & Common Fixes
 
-* **Windows File Lock Errors (`mergeDebugResources`)**:
-  If Android Studio is open while running CLI builds, Windows may lock resource cache files. 
-  *Fix*: In Android Studio, click **Build > Clean Project**, or go to **File > Invalidate Caches... > Invalidate and Restart**.
+* **Windows File Lock Errors (`mergeDebugResources` / `app\build` locks)**:
+  If Android Studio is open while running CLI builds, Windows background processes may lock resource cache files or build intermediates.
+  * **Option 1 (IDE Fix)**: In Android Studio, click **Build > Clean Project**, or go to **File > Invalidate Caches... > Invalidate and Restart**.
+  * **Option 2 (Manual Override - Recommended for stubborn Windows locks)**: 
+    1. Close Android Studio (or run `.\gradlew --stop` in your terminal to terminate background daemons).
+    2. Open Windows File Explorer and navigate to your project folder.
+    3. Manually delete the entire `app\build` directory (`<project-root>\app\build`).
+    4. Reopen Android Studio and click **Run** to generate a fresh, clean build.
 * **Database Migration Errors**:
   If you modify any Room Entity (`Hive.kt`, `HarvestLog.kt`), you must increment `DATABASE_VERSION` inside `MadhuDatabase.kt` or clear the app storage on your testing device.
 * **Testing Background Reminders**:
